@@ -73,7 +73,7 @@ class CellularAutomata:
             print('    ' + ''.join([str(c) for c in self.cells]))
         return
 
-# smaller helper functions:
+    # smaller helper functions:
 
     def to_ternary(self, decimal: int) -> str:
         """Converts a decimal number to its ternary representation (string with length 3)"""

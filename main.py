@@ -12,8 +12,6 @@ def main():
             return
     
     for rule in rules:
-        # set rule number in binary
-        #rule: int = 14138886
         # initialize the automaton with this rule
         automaton: CellularAutomata = CellularAutomata(rule_number = rule)
         # set number of iterations
@@ -26,8 +24,14 @@ def main():
         # choose a starting condition from the list of conditions
         condition: typing.List[int] = conditions[0] # choose a starting condition from the list of conditions
         result: typing.List[int] = automaton(c0 = condition, t = iterations)
-    
     return
+
+def test():
+    with open('starting condition.txt', 'r') as file:
+        conditions: typing.List[list] = [ast.literal_eval(line.rstrip()) for line in file]
+    rule: int = np.random.randint(0, 10000000)
+    automaton: CellularAutomata = CellularAutomata(rule_number = rule)
+    automaton(conditions[0], 299)
 
 if __name__ == '__main__':
     main()
